@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(240, 242, 245);
+}
+
+/* Page center */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main layout */
+.content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left section */
+.info {
+  max-width: 400px;
+}
+
+.logo {
+  color: rgb(24, 119, 242);
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* Login card */
+.login-card {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+}
+
+.login-btn {
+  background-color: rgb(24, 119, 242);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.forgot {
+  text-align: center;
+  font-size: 14px;
+  color: rgb(24, 119, 242);
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgb(221, 221, 221);
+  margin: 10px 0;
+}
+
+.create-btn {
+  background-color: rgb(66, 183, 42);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: center;
+}
