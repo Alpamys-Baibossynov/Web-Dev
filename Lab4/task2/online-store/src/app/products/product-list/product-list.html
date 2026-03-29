@@ -1,0 +1,81 @@
+<section class="catalog">
+  <h1>Online Store</h1>
+  <p class="subtitle">Popular products from Kaspi.kz</p>
+
+  <div class="product-grid">
+    @for (product of products; track product.id) {
+      <article class="product-card">
+        <div class="gallery">
+          <div class="main-image-wrapper">
+            <button class="nav-btn left" (click)="prevImage(product)">‹</button>
+
+            <img
+              class="main-image"
+              [src]="getCurrentImage(product)"
+              [alt]="product.name"
+            />
+
+            <button class="nav-btn right" (click)="nextImage(product)">›</button>
+          </div>
+
+          <div class="thumbnails">
+            @for (img of product.images; track img; let i = $index) {
+              <img
+                class="thumb"
+                [class.active]="getCurrentImage(product) === img"
+                [src]="img"
+                [alt]="product.name + ' thumbnail ' + (i + 1)"
+                (click)="selectImage(product.id, i)"
+              />
+            }
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h2>{{ product.name }}</h2>
+          <p class="description">{{ product.description }}</p>
+
+          <p class="price">{{ product.price | number:'1.0-0' }} ₸</p>
+
+          <div class="rating">
+            <span class="stars">
+              @for (star of getStars(product.rating); track $index) {
+                <span>{{ star }}</span>
+              }
+            </span>
+            <span class="rating-number">{{ product.rating }}</span>
+          </div>
+
+          <div class="actions">
+            <a
+              class="btn primary"
+              [href]="product.link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kaspi
+            </a>
+
+            <a
+              class="btn share"
+              [href]="getWhatsAppShareLink(product)"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              class="btn share telegram"
+              [href]="getTelegramShareLink(product)"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Telegram
+            </a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
