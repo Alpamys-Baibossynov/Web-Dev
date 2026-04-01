@@ -1,0 +1,39 @@
+.album-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #dbe3f0;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.album-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.album-content h3 {
+  margin: 0 0 6px;
+}
+
+.album-content p {
+  margin: 0;
+  color: #4b5563;
+}
+
+@media (max-width: 700px) {
+  .album-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

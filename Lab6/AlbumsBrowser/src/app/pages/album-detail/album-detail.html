@@ -1,0 +1,49 @@
+<section class="card">
+  @if (loading) {
+    <p class="message">Loading album details...</p>
+  } @else if (errorMessage && !album) {
+    <p class="message error">{{ errorMessage }}</p>
+  } @else if (album) {
+    <h1>Album Details</h1>
+
+    <div class="details">
+      <p><strong>ID:</strong> {{ album.id }}</p>
+      <p><strong>User ID:</strong> {{ album.userId }}</p>
+      <p><strong>Current Title:</strong> {{ album.title }}</p>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Edit title</label>
+      <input
+        id="title"
+        type="text"
+        [(ngModel)]="editedTitle"
+        placeholder="Enter new album title"
+      />
+    </div>
+
+    @if (message) {
+      <p class="message success">{{ message }}</p>
+    }
+
+    @if (errorMessage && album) {
+      <p class="message error">{{ errorMessage }}</p>
+    }
+
+    <div class="actions">
+      <button class="btn primary" (click)="saveAlbum()" [disabled]="saving">
+        @if (saving) {
+          Saving...
+        } @else {
+          Save
+        }
+      </button>
+
+      <a class="btn secondary" [routerLink]="['/albums', album.id, 'photos']">
+        View Photos
+      </a>
+
+      <button class="btn secondary" (click)="goBack()">Back</button>
+    </div>
+  }
+</section>

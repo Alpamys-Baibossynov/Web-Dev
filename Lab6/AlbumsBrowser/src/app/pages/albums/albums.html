@@ -1,0 +1,34 @@
+<section class="card">
+  <h1>Albums</h1>
+
+  @if (loading) {
+    <p class="message">Loading albums...</p>
+  } @else if (errorMessage) {
+    <p class="message error">{{ errorMessage }}</p>
+  } @else if (albums.length === 0) {
+    <p class="message">No albums available.</p>
+  } @else {
+    <div class="album-list">
+      @for (album of albums; track album.id) {
+        <div class="album-item" (click)="openAlbum(album.id)">
+          <div class="album-content">
+            <h3>Album #{{ album.id }}</h3>
+            <p>{{ album.title }}</p>
+          </div>
+
+          <button
+            class="btn danger"
+            (click)="deleteAlbum(album.id, $event)"
+            [disabled]="isDeleting(album.id)"
+          >
+            @if (isDeleting(album.id)) {
+              Deleting...
+            } @else {
+              Delete
+            }
+          </button>
+        </div>
+      }
+    </div>
+  }
+</section>
